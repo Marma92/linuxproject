@@ -17,6 +17,7 @@ if [ "$1" = "--sc" ]
   echo "RAM :"
   echo " "
   echo "Total Memory :"
+  free | grep Mem | awk '{print $2 " KB"}'
   echo "Used Memory :"
   free | grep Mem | awk '{print $3 " KB"}'
   echo "Free Memory :"
