@@ -17,18 +17,23 @@ if [ "$1" = "--sc" ]
   echo "RAM :"
   echo " "
   echo "Total Memory :"
-  free | grep Mem | awk '{print $2 " MB"}'
   echo "Used Memory :"
-  free | grep Mem | awk '{print $3 " MB"}'
+  free | grep Mem | awk '{print $3 " KB"}'
   echo "Free Memory :"
-  free | grep Mem | awk '{print $4 " MB"}'
+  free | grep Mem | awk '{print $4 " KB"}'
   echo "Shared Memory :"
-  free | grep Mem | awk '{print $5 " MB"}'
+  free | grep Mem | awk '{print $5 " KB"}'
   echo "Buffers :"
-  free | grep Mem | awk '{print $6 " MB"}'
+  free | grep Mem | awk '{print $6 " KB"}'
   echo "Cached Memory :"
-  free | grep Mem | awk '{print $7 " MB"}'
-fi
+  free | grep Mem | awk '{print $7 " KB"}'
+  echo " "
+  echo "Disk(s) and partitions:"
+  echo " "
+  df
+  
+  
+
 #- Via la commande dmesg , afficher les informations relatives à la carte réseau ainsi que les
 #potentiels messages de type 'err' ou 'warn'.
 
@@ -60,3 +65,6 @@ fi
 
 #- Lancer un netcat en écoute en local sur le port de votre choix. La connexion à ce netcat devra
 # afficher le contenu de ce script.
+
+
+fi
