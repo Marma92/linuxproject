@@ -37,6 +37,11 @@ if [ "$1" = "--sc" ]
   echo " "
   lspci | grep -i audio
   echo " "
+  echo "Network Devices :"
+  echo " " 
+  lspci | grep -network
+  lspci | grep -ethernet
+  echo " "
   echo "Disk(s) and partitions :"
   echo " "
   df
