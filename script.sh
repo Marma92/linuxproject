@@ -9,8 +9,8 @@ echo "Welcome to $0"
 #l'utilisation des commandes systèmes dédiées à cette tâche (lsusb, lscpu, etc ..)
 if [ "$1" = "--sc" ]
   then
-  echo "Listing your system components : "
-  echo "Processor: "
+  echo "Listing your system components :"
+  echo "Processor :"
   echo " "
   lscpu
   echo " "
@@ -29,9 +29,19 @@ if [ "$1" = "--sc" ]
   echo "Cached Memory :"
   free | grep Mem | awk '{print $7 " KB"}'
   echo " "
-  echo "Disk(s) and partitions:"
+  echo "Graphic Card :"
+  echo " "
+  lspci | grep "VGA compatible controller"
+  echo " " 
+  echo "Disk(s) and partitions :"
   echo " "
   df
+  echo " "
+  echo "USB Devices :"
+  echo " "
+  lsusb
+  echo " "
+fi  
   
   
 
@@ -68,4 +78,4 @@ if [ "$1" = "--sc" ]
 # afficher le contenu de ce script.
 
 
-fi
+
