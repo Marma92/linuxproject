@@ -33,6 +33,10 @@ if [ "$1" = "--sc" ]
   echo " "
   lspci | grep "VGA compatible controller"
   echo " " 
+  echo "Sound Card :"
+  echo " "
+  lspci | grep -i audio
+  echo " "
   echo "Disk(s) and partitions :"
   echo " "
   df
