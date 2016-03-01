@@ -69,11 +69,12 @@ elif [ "$1" = "--nw" ]
 #- Afficher le niveau d'execution actuel du systeme et lister les services liés à ce niveau
 # d'execution
 elif [ "$1" = "--pcs" ]
+	then
 	echo " "
 	echo "Current level of execution"
 	top
-	echo "Processus linked by this level of execution"
-	ps aux 
+	#echo "Processus linked by this level of execution"
+	#ps aux 
 
 
 #- Afficher une version commentée et expliquée de la partie du fichier de configuration de grub
@@ -86,7 +87,8 @@ elif [ "$1" = "--gr" ]
 	echo " " 
 
 #- Afficher les partitions du système.
-elif ["$1" = "--part"]
+elif [ "$1" = "--pt" ]
+	then
 	echo " "
 	echo "Disk(s) and partitions :"
 	echo " "
@@ -98,7 +100,8 @@ elif ["$1" = "--part"]
 
 
 #- Afficher les paquets actuellement installés sur la machine.
-elif ["$1" = "--pkg"]	
+elif [ "$1" = "--pkg" ]	
+	then
 	echo " "
 	echo "List of installed packages"
 	echo " "
