@@ -67,22 +67,37 @@ elif [ "$1" = "--nw" ]
 
 #- Afficher le niveau d'execution actuel du systeme et lister les services liés à ce niveau
 # d'execution
-
+elif [ "$1" = "--pcs" ]
+	echo " "
+	echo "Current level of execution"
+	top
+	echo "Processus linked by this level of execution"
+	ps aux 
+fi
 
 #- Afficher une version commentée et expliquée de la partie du fichier de configuration de grub
 #relative au système en cours de fonctionnement.
 
 
 #- Afficher les partitions du système.
-
+elif ["$1" = "--part"]
+	echo " "
+	echo "Disk(s) and partitions :"
+	echo " "
+	df
+fi
 
 #- Avec DD , créer un périphérique bloc de 100Mo, transformer le en un filesystem de type ext3 et
 # monter le dans /mnt
 
 
 #- Afficher les paquets actuellement installés sur la machine.
-
-
+elif ["$1" = "--pkg"]	
+	echo " "
+	echo "List of installed packages"
+	echo " "
+	dpkg-query -l
+fi
 #- Tester la présence du serveur openssh et installer le paquet si celui-ci est manquant.
 
 
