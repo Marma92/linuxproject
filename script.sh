@@ -74,7 +74,7 @@ elif [ "$1" = "--pcs" ]
 	top
 	echo "Processus linked by this level of execution"
 	ps aux 
-fi
+
 
 #- Afficher une version commentée et expliquée de la partie du fichier de configuration de grub
 #relative au système en cours de fonctionnement.
@@ -91,7 +91,7 @@ elif ["$1" = "--part"]
 	echo "Disk(s) and partitions :"
 	echo " "
 	df
-fi
+
 
 #- Avec DD , créer un périphérique bloc de 100Mo, transformer le en un filesystem de type ext3 et
 # monter le dans /mnt
@@ -103,7 +103,7 @@ elif ["$1" = "--pkg"]
 	echo "List of installed packages"
 	echo " "
 	dpkg-query -l
-fi
+
 #- Tester la présence du serveur openssh et installer le paquet si celui-ci est manquant.
 
 
