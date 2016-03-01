@@ -44,7 +44,7 @@ if [ "$1" = "--sc" ]
 	echo " "
 	echo "Disk(s) and partitions :"
 	echo " "
-	df
+	lsblk
 	echo " "
 	echo "USB Devices :"
 	echo " "
@@ -61,7 +61,8 @@ elif [ "$1" = "--nw" ]
 	echo "Concerning Network Card :"
 	dmesg |grep -i eth
 	echo " "
-	echo "Warning and Errors :"
+	echo "Warning and Errors :"*
+	
 	dmesg --level=err,warn
 
 
@@ -77,7 +78,12 @@ fi
 
 #- Afficher une version commentée et expliquée de la partie du fichier de configuration de grub
 #relative au système en cours de fonctionnement.
-
+elif [ "$1" = "--gr" ]
+	then
+	echo "Grub Configuration File:"
+	echo " "
+	cat /boot/grub/grub.cfg
+	echo " " 
 
 #- Afficher les partitions du système.
 elif ["$1" = "--part"]
