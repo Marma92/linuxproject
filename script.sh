@@ -56,10 +56,13 @@ if [ "$1" = "--sc" ]
 #potentiels messages de type 'err' ou 'warn'.
 elif [ "$1" = "--nw" ]
 	then
-	
-	echo "network"
-
-fi
+	echo "Dmesg recap :"
+	echo " "
+	echo "Concerning Network Card :"
+	dmesg |grep -i eth
+	echo " "
+	echo "Warning and Errors :"
+	dmesg --level=err,warn
 
 
 #- Afficher le niveau d'execution actuel du systeme et lister les services liés à ce niveau
@@ -90,4 +93,4 @@ fi
 # afficher le contenu de ce script.
 
 
-
+fi
