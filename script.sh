@@ -111,7 +111,12 @@ elif [ "$1" = "--pkg" ]
 
 
 #- Ajouter un nouvel utilisateur (l'ensemble des informations devra être passé en argument)
-
+elif [ "$1" = "--usr" & "$2" & "$3" ]
+	then
+	echo" "
+	useradd $2
+	passwd $3
+	echo "User created"
 
 #- Lancer un netcat en écoute en local sur le port de votre choix. La connexion à ce netcat devra
 # afficher le contenu de ce script.
