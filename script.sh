@@ -8,55 +8,58 @@ echo "Welcome to $0"
 #Lister les périphériques de la machine (usb, disque, processeur, carte graphique, etc ..) via
 #l'utilisation des commandes systèmes dédiées à cette tâche (lsusb, lscpu, etc ..)
 if [ "$1" = "--sc" ]
-  then
-  echo "Listing your system components :"
-  echo "Processor :"
-  echo " "
-  lscpu
-  echo " "
-  echo "RAM :"
-  echo " "
-  echo "Total Memory :"
-  free | grep Mem | awk '{print $2 " KB"}'
-  echo "Used Memory :"
-  free | grep Mem | awk '{print $3 " KB"}'
-  echo "Free Memory :"
-  free | grep Mem | awk '{print $4 " KB"}'
-  echo "Shared Memory :"
-  free | grep Mem | awk '{print $5 " KB"}'
-  echo "Buffers :"
-  free | grep Mem | awk '{print $6 " KB"}'
-  echo "Cached Memory :"
-  free | grep Mem | awk '{print $7 " KB"}'
-  echo " "
-  echo "Graphic Card :"
-  echo " "
-  lspci | grep "VGA compatible controller"
-  echo " " 
-  echo "Sound Card :"
-  echo " "
-  lspci | grep -i audio
-  echo " "
-  echo "Network Devices :"
-  echo " " 
-  lspci | grep -network
-  lspci | grep -ethernet
-  echo " "
-  echo "Disk(s) and partitions :"
-  echo " "
-  df
-  echo " "
-  echo "USB Devices :"
-  echo " "
-  lsusb
-  echo " "
-fi  
+	then
+	echo "Listing your system components :"
+	echo "Processor :"
+	echo " "
+	lscpu
+	echo " "
+	echo "RAM :"
+	echo " "
+	echo "Total Memory :"
+	free | grep Mem | awk '{print $2 " KB"}'
+	echo "Used Memory :"
+	free | grep Mem | awk '{print $3 " KB"}'
+	echo "Free Memory :"
+	free | grep Mem | awk '{print $4 " KB"}'
+	echo "Shared Memory :"
+	free | grep Mem | awk '{print $5 " KB"}'
+	echo "Buffers :"
+	free | grep Mem | awk '{print $6 " KB"}'
+	echo "Cached Memory :"
+	free | grep Mem | awk '{print $7 " KB"}'
+	echo " "
+	echo "Graphic Card :"
+	echo " "
+	lspci | grep "VGA compatible controller"
+	echo " " 
+	echo "Sound Card :"
+	echo " "
+	lspci | grep -i audio
+	echo " "
+	echo "Network Devices :"
+	echo " " 
+	lspci | grep -network
+	lspci | grep -ethernet
+	echo " "
+	echo "Disk(s) and partitions :"
+	echo " "
+	df
+	echo " "
+	echo "USB Devices :"
+	echo " "
+	lsusb
+	echo " "
+ 
   
-  
-
 #- Via la commande dmesg , afficher les informations relatives à la carte réseau ainsi que les
 #potentiels messages de type 'err' ou 'warn'.
+elif [ "$1" = "--nw" ]
+	then
+	
+	echo "network"
 
+fi
 
 
 #- Afficher le niveau d'execution actuel du systeme et lister les services liés à ce niveau
