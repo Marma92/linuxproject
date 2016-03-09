@@ -98,10 +98,11 @@ elif [ "$1" = "--pt" ]
 #- Avec DD , créer un périphérique bloc de 100Mo, transformer le en un filesystem de type ext3 et
 # monter le dans /mnt
 elif [ "$1" = "--dd" ]
+	then
 	dd if=/dev/${2} of=~/${3} bs=100M
-    mkfs.ext3 ~/${3}
-    mount  ~/${3} /mnt
-    df -h
+    	mkfs.ext3 ~/${3}
+    	mount  ~/${3} /mnt
+    	df -h
 
 #- Afficher les paquets actuellement installés sur la machine.
 elif [ "$1" = "--pkg" ]	
@@ -113,8 +114,8 @@ elif [ "$1" = "--pkg" ]
 
 #- Tester la présence du serveur openssh et installer le paquet si celui-ci est manquant.
 elif [ "$1" = "--ssh" ]	
-	if!(dpkg -s openssh-server |egrep
-		"Package:|Version:") ; 
+	then
+	if!(dpkg -s openssh-server |egrep "Package:|Version:") ; 
 		then #ICI on teste si la commande entre parenthese renvoi un resultat
         	apt-get install 
 			-qq openssh-server -y >
@@ -125,16 +126,17 @@ elif [ "$1" = "--ssh" ]
 elif [ "$1" = "--usr" & "$2" & "$3" ]
 	then
 	echo" "
-	useradd $2
+	sudo useradd $2
 	passwd $3
 	echo "User created"
 
 #- Lancer un netcat en écoute en local sur le port de votre choix. La connexion à ce netcat devra
 # afficher le contenu de ce script.
 # Le port doit être dans le deuxième paramètre d'entrée sinon 
-elif [ "$1' = "--nc"]
-	if [ "$2" = nul ]
-		read -r -p 'Quel port ? ' port # On demande au user de saisir un port
-	nc -l -p $2 < script2.sh
+elif [ "$1" = "--nc" ]
+	then
+		if [ "$2" = nul ]
+			read -r -p 'Quel port ? ' port # On demande au user de saisir un port
+		nc -l -p $2 < script2.sh
 
 fi
